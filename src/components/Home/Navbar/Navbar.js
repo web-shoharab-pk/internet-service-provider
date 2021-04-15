@@ -15,14 +15,14 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
                         <li className="nav-item mx-3">
-                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="#/">Home</Link>
+                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="/home">Home</Link>
                         </li>
                         
                         <li className="nav-item mx-3">
                             <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="#/">About</Link>
                         </li>
                         <li className="nav-item mx-3">
-                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="#/">Services</Link>
+                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="/services">Services</Link>
                         </li>
                         <li className="nav-item mx-3">
                             <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="/dashboard">Dashboard</Link>

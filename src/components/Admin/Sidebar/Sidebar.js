@@ -10,16 +10,16 @@ const Sidebar = () => {
                 <Link className="sidebarLink text-light" to="/admin/orderList">Order list</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/orderList">Add Services</Link>
+                <Link className="sidebarLink text-light" to="/admin/addService">Add Services</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/orderList">Make Admin</Link>
+                <Link className="sidebarLink text-light" to="/admin/addAdmin">Make Admin</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/orderList">Manage Services</Link>
+                <Link className="sidebarLink text-light" to="/admin/manageService">Manage Services</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/orderList">Order</Link>
+                <Link className="sidebarLink text-light" to="/dashboard/admin/orderList">Order</Link>
             </div>
             <div className="sidebarOption">
                 <Link className="sidebarLink text-light" to="/admin/orderList">Order list</Link>

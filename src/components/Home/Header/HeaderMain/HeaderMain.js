@@ -1,6 +1,7 @@
 import React from 'react';
 import './HeaderMain.css';
 import modemImg from '../../../images/modem.png'
+import { Link } from 'react-router-dom';
 
 const HeaderMain = () => {
     return (
@@ -13,7 +14,7 @@ const HeaderMain = () => {
                         <h1>Starting From <span>$39.89</span></h1>
                         <p className="m-0  mt-3">Lorem ipsum dolor sit amet consectetur.</p>
                         <p className="m-0  mt-1">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                        <button className="brandBtn mt-5 me-3">GET SERVICES</button>
+                      <Link to="/services"><button className="brandBtn mt-5 me-3">GET SERVICES</button></Link>  
                     </div>
 
                 </div>
