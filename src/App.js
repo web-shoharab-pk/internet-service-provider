@@ -8,30 +8,41 @@ import './App.css';
 import AddAdmin from './components/Admin/Admin/AddAdmin/AddAdmin';
 import AddService from './components/Admin/Admin/AddService/AddService';
 import Admin from './components/Admin/Admin/Admin';
+import ManageService from './components/Admin/Admin/ManageService/ManageService';
+import BookService from './components/BookService/BookService';
 import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
+import PrivateRouter from './components/Login/PrivateRouter';
 import Services from './components/Services/Services';
 
 export const UserContext = createContext()
 
 function App() {
   const [userInfo, setUserInfo] = useState({})
+  const [bookingService, setBookingService] = useState({})
+  console.log(userInfo);
   return (
-    <UserContext.Provider value={[userInfo, setUserInfo]}>
+    <UserContext.Provider value={{ userInfo, setUserInfo, bookingService, setBookingService }}>
       <Router>
         <Switch>
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/admin/addService">
+          <PrivateRouter path="/admin/bookingService">
+            <BookService></BookService>
+          </PrivateRouter>
+          <PrivateRouter path="/admin/addService">
             <AddService></AddService>
-          </Route>
-          <Route path="/services">
+          </PrivateRouter>
+          <PrivateRouter path="/services">
             <Services></Services>
+          </PrivateRouter>
+          <Route path="/admin/manageService">
+            <ManageService></ManageService>
           </Route>
-          <Route path="/dashboard">
+          <PrivateRouter path="/dashboard">
             <Admin></Admin>
-          </Route>
+          </PrivateRouter>
           <Route path="/admin/addAdmin">
             <AddAdmin></AddAdmin>
           </Route>

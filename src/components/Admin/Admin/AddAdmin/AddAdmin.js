@@ -20,9 +20,15 @@ const AddAdmin = () => {
 
         fetch('http://localhost:5500/addAdmin', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(adminInfo)
         })
+        .then(response => response.json())
+            .then(data => {
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
     }
 
@@ -46,7 +52,7 @@ const AddAdmin = () => {
                             <label className="fs-5 fw-bold text-secondary">Admin Phone</label>
                             <input onBlur={handleBlur} className="form-control w-25" placeholder="Phone" name="phone" />
                             <br />
-                            <button onClick={handleSubmit} type="submit" className="brandBtn text-center">Make Admin</button>
+                            <button onClick={handleSubmit} type="submit" className="brandBtn w-25 text-center">Make Admin</button>
                         </form>
                     </div>
 

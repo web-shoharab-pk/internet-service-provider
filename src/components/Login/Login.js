@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './Login.css';
 import logo from '../images/logo.png';
 import google from '../images/google.png';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
@@ -12,19 +12,26 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 const Login = () => {
-    const [userInfo, setUserInfo] = useContext(UserContext)
-console.log(userInfo);
+    const {setUserInfo} = useContext(UserContext);
+    let history = useHistory();
+    let location = useLocation(); 
+  
+    let { from } = location.state || { from: { pathname: "/" } };
+    console.log("from", from);
     const googleLogin = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
-        console.log("google login clicked");
+      
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => { 
                 var credential = result.credential; 
                 var token = credential.accessToken;
-                sessionStorage.setItem(token) 
+                sessionStorage.setItem('token', token) 
                 var user = result.user;
-                setUserInfo(user) 
+                setUserInfo(user) ;
+                if(user){
+                    history.replace(from); 
+                }
             }).catch((error) => { 
                 var errorCode = error.code;
                 var errorMessage = error.message;

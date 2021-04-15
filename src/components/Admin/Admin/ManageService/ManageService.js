@@ -1,11 +1,65 @@
-import React from 'react';
-import './ManageService.css'
+import React, { useEffect, useState } from 'react';
+import Sidebar from '../../Sidebar/Sidebar';
+import './ManageService.css';
 
 const ManageService = () => {
+
+    const [services, setServices] = useState([]);
+    const [result, setResult] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5500/services')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
+
+    const handleDeleteService = (id) => {
+        console.log("product delete", id);
+        fetch(`http://localhost:5500/deleteService/${id}`, {
+            method: 'DELETE' 
+        })
+        .then(res => res.json())
+        .then(result => {
+            setResult(result)
+        })
+    }
+    const displayHide = (e) => {
+        if(result){
+            e.target.parentNode.style.display = 'none';
+        }
+    }
+
     return (
-        <div>
-            
-        </div>
+        <main>
+            <div className="row">
+                <div className="col-md-2">
+                    <Sidebar></Sidebar>
+                </div>
+                <div className="col-md-10 p-5">
+                    <table className="table table-success table-striped">
+                        <thead>
+                            <tr>
+                             
+                                <th scope="col">Service Name</th>
+                                <th scope="col">Service Price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                services.map(service =>
+                                    <tr key={service._id} className="text-secondary"> 
+                                        <th>{service.name}</th>
+                                        <th>${service.price}</th>
+                                        <td onClick={displayHide}><button onClick={() => handleDeleteService( service._id)} className="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
     );
 };
 
