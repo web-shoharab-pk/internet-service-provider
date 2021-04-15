@@ -25,10 +25,10 @@ const Navbar = () => {
                             <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="#/">Services</Link>
                         </li>
                         <li className="nav-item mx-3">
-                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="#/">Admin</Link>
+                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="/dashboard">Dashboard</Link>
                         </li>
                         <li className="nav-item mx-3">
-                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="#/">Login</Link>
+                            <Link className="nav-link px-5 active fw-bolder fs-5 mx-3" aria-current="page" to="/login">Login</Link>
                         </li>
                     </ul>
 

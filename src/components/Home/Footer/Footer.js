@@ -7,7 +7,7 @@ import { faFacebook, faTwitter, faYoutube, faInstagram } from '@fortawesome/free
 
 const Footer = () => {
     return (
-        <section className="mt-5 footerSection">
+        <section className="footerSection">
             <div className="container">
                 <div className="row p-5">
                     <div className="col-md-3">
@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                 </div> 
                 <hr/>
-                <h6 className="text-center p-3 text-info">© 2020 InfiNxt | Design by web-shoharab-pk. all rights & Privacy Policy reserve by web@Shoharab</h6>
+                <h6 className="text-center p-3 m-0 text-info">© 2020 InfiNxt | Design by web-shoharab-pk. all rights & Privacy Policy reserve by web@Shoharab</h6>
             </div>
         </section>
     );
