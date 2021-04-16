@@ -4,8 +4,7 @@ import Sidebar from '../Admin/Sidebar/Sidebar';
 import Shipment from '../Shipment/Shipment';
  
  const BookService = () => {
-    const {bookingService, userInfo} = useContext(UserContext);
-    console.log(bookingService, userInfo);
+    const {bookingService, userInfo} = useContext(UserContext); 
      return (
          <main>
           <div className="row">

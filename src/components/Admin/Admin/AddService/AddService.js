@@ -3,8 +3,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 import './AddService.css';
 
 const AddService = () => {
-    const [info, setInfo] = useState({});
-    console.log(info);
+    const [info, setInfo] = useState({}); 
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -36,16 +35,16 @@ const AddService = () => {
                     <br />
                     <div>
                         <form>
-                            <label className="fs-5 fw-bold text-secondary">service name</label>
-                            <input onBlur={handleBlur} className="form-control w-25" placeholder="Name is required" required name="name" />
+                            <label className="fs-5 fw-bold text-secondary">service name*</label>
+                            <input onBlur={handleBlur} className="form-control w-50" placeholder="Name is required" required name="name" />
                             <br />
-                            <label className="fs-5 fw-bold text-secondary">description</label>
-                            <input onBlur={handleBlur} className="form-control w-25" placeholder="description" required name="description" />
+                            <label className="fs-5 fw-bold text-secondary">description*</label>
+                            <input onBlur={handleBlur} className="form-control w-50" placeholder="description" required name="description" />
                             <br />
-                            <label className="fs-5 fw-bold text-secondary">price</label>
-                            <input onBlur={handleBlur} className="form-control w-25" placeholder="Price" name="price" />
+                            <label className="fs-5 fw-bold text-secondary">price*</label>
+                            <input onBlur={handleBlur} className="form-control w-50" placeholder="Price" required name="price" />
                             <br />
-                            <button onClick={handleSubmit} type="submit" className="brandBtn w-25 text-center">SUBMIT</button>
+                            <button onClick={handleSubmit} type="submit" className="brandBtn w-50 text-center">SUBMIT</button>
                         </form>
                     </div>
                 </div>

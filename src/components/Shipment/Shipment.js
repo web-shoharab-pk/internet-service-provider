@@ -4,8 +4,6 @@ import Payment from '../Payment/Payment';
 const Shipment = ({ bookingService, userInfo }) => {
     const [info, setInfo] = useState({});
     const [shippingData, setShippingData] = useState('')
-    console.log(shippingData);
-    console.log(info);
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -18,8 +16,10 @@ const Shipment = ({ bookingService, userInfo }) => {
 
     }
     const handlePaymentSuccess = (id, card) => {
-        const orderPayInfo = {
-            loginUser: userInfo,
+        const orderPayInfo = { 
+            userName: userInfo.displayName,
+            userEmail: userInfo.email,
+            userImage: userInfo.photoURL,
             name: info.name,
             email: info.email,
             phone: info.phone,
@@ -28,7 +28,8 @@ const Shipment = ({ bookingService, userInfo }) => {
             servicePrice: bookingService.price,
             date: (new Date().toDateString("dddd, mmmm, yyyy")),
             paymentCardId: id,
-            paymentCardDetails: card
+            // paymentCardDetails: card
+            orderStatus: 'pending'
         }
         fetch('http://localhost:5500/order&paymentDetails', {
             method: 'POST',

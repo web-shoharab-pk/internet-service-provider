@@ -28,12 +28,10 @@ const PaymentForm = ({handlePaymentSuccess}) => {
             card: cardElement,
         });
 
-        if (error) {
-            console.log('[error]', error);
+        if (error) { 
             setPaymentError(error.message);
             setPaymentSuccess(null)
-        } else {
-            console.log('[PaymentMethod]', paymentMethod);
+        } else { 
             setPaymentSuccess(paymentMethod)
             setPaymentError(null);
             handlePaymentSuccess(paymentMethod.id, paymentMethod.card)

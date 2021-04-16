@@ -35,13 +35,13 @@ const Sidebar = () => {
                 <Link className="sidebarLink text-light" to="/admin/manageService"><FontAwesomeIcon icon={faTasks}/> Manage Services</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/bookingService"><FontAwesomeIcon icon={faSort}/> Order</Link>
+                <Link className="sidebarLink text-light" to="/admin/bookingService"><FontAwesomeIcon icon={faSort}/> Booking</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/orderList"><FontAwesomeIcon icon={faListAlt}/> Order list</Link>
+                <Link className="sidebarLink text-light" to="/admin/bookingList"><FontAwesomeIcon icon={faListAlt}/> Booking list</Link>
             </div>
             <div className="sidebarOption">
-                <Link className="sidebarLink text-light" to="/admin/orderList"><FontAwesomeIcon icon={faCommentDots}/> Order Review</Link>
+                <Link className="sidebarLink text-light" to="/admin/orderReview"><FontAwesomeIcon icon={faCommentDots}/> Order Review</Link>
             </div>
             <div onClick={handleLogout} className="sidebarOption logout">
                 <Link  className="sidebarLink text-light" to="/home"><FontAwesomeIcon icon={faSignOutAlt}/> Logout</Link>

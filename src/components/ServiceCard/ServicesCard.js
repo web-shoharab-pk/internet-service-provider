@@ -6,8 +6,7 @@ import { UserContext } from '../../App';
 const ServicesCard = ({ service }) => {
 
     const {   setBookingService } = useContext(UserContext)
-    const history = useHistory()
-    // console.log(bookingService);
+    const history = useHistory() 
     const handleBooking = (id) => {
         fetch(`http://localhost:5500/bookingService/${id}`)
             .then(res => res.json())

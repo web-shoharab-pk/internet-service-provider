@@ -6,9 +6,11 @@ import {
 } from "react-router-dom";
 import './App.css';
 import AddAdmin from './components/Admin/Admin/AddAdmin/AddAdmin';
-import AddService from './components/Admin/Admin/AddService/AddService';
-import Admin from './components/Admin/Admin/Admin';
+import AddService from './components/Admin/Admin/AddService/AddService'; 
 import ManageService from './components/Admin/Admin/ManageService/ManageService';
+import OrderedList from './components/Admin/Admin/OrderedList/OrderedList';
+import BookingList from './components/Admin/Customer/BookingList/BookingList';
+import GiveReview from './components/Admin/Customer/GiveReview/GiveReview';
 import BookService from './components/BookService/BookService';
 import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
@@ -28,6 +30,12 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
+          <PrivateRouter path="/admin/orderList">
+            <OrderedList></OrderedList>
+          </PrivateRouter>
+          <PrivateRouter path="/admin/bookingList">
+            <BookingList></BookingList>
+          </PrivateRouter>
           <PrivateRouter path="/admin/bookingService">
             <BookService></BookService>
           </PrivateRouter>
@@ -37,15 +45,18 @@ function App() {
           <PrivateRouter path="/services">
             <Services></Services>
           </PrivateRouter>
-          <Route path="/admin/manageService">
-            <ManageService></ManageService>
-          </Route>
-          <PrivateRouter path="/dashboard">
-            <Admin></Admin>
+          <PrivateRouter path="/admin/orderReview">
+            <GiveReview></GiveReview>
           </PrivateRouter>
-          <Route path="/admin/addAdmin">
+          <PrivateRouter path="/admin/manageService">
+            <ManageService></ManageService>
+          </PrivateRouter>
+          <PrivateRouter path="/dashboard">
+            <OrderedList></OrderedList> 
+          </PrivateRouter>
+          <PrivateRouter path="/admin/addAdmin">
             <AddAdmin></AddAdmin>
-          </Route>
+          </PrivateRouter>
           <Route path="/home">
             <Home />
           </Route>

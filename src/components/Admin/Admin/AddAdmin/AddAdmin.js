@@ -3,8 +3,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 import './AddAmin.css'
 
 const AddAdmin = () => {
-    const [info, setInfo] = useState({});
-    console.log(info);
+    const [info, setInfo] = useState({}); 
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -39,20 +38,20 @@ const AddAdmin = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col-md-10 p-5">
-                    <h1 className="text-primary">Give New Admin Details</h1>
+                    <h1  style={{color: '#FE3748'}}>Give New Admin Details</h1>
                     <br />
                     <div>
                         <form>
-                            <label className="fs-5 fw-bold text-secondary">Admin Name</label>
-                            <input onBlur={handleBlur} className="form-control w-25" placeholder="Name is required" required name="name" />
+                            <label className="fs-5 fw-bold text-secondary">Admin Name*</label>
+                            <input onBlur={handleBlur} className="form-control w-50" placeholder="Name is required" required name="name" />
                             <br />
-                            <label className="fs-5 fw-bold text-secondary">Admin Email</label>
-                            <input onBlur={handleBlur} className="form-control w-25" placeholder="Email is required" required name="email" />
+                            <label className="fs-5 fw-bold text-secondary">Admin Email*</label>
+                            <input onBlur={handleBlur} className="form-control w-50" placeholder="Email is required" required name="email" />
                             <br />
                             <label className="fs-5 fw-bold text-secondary">Admin Phone</label>
-                            <input onBlur={handleBlur} className="form-control w-25" placeholder="Phone" name="phone" />
+                            <input onBlur={handleBlur} className="form-control w-50" placeholder="Phone" name="phone" />
                             <br />
-                            <button onClick={handleSubmit} type="submit" className="brandBtn w-25 text-center">Make Admin</button>
+                            <button onClick={handleSubmit} type="submit" className="brandBtn w-50 text-center">Make Admin</button>
                         </form>
                     </div>
 

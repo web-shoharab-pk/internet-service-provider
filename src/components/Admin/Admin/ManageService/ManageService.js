@@ -13,8 +13,7 @@ const ManageService = () => {
             .then(data => setServices(data))
     }, [])
 
-    const handleDeleteService = (id) => {
-        console.log("product delete", id);
+    const handleDeleteService = (id) => { 
         fetch(`http://localhost:5500/deleteService/${id}`, {
             method: 'DELETE' 
         })
