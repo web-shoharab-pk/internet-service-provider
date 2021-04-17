@@ -1,0 +1,7 @@
+.cardDiv{
+    transition: 1s;
+    height: 15rem;
+}
+.cardDiv:hover{ 
+    transform: scale(1.1);
+}

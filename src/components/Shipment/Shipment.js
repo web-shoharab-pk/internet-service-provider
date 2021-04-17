@@ -33,7 +33,7 @@ const Shipment = ({ bookingService, userInfo }) => {
             // paymentCardDetails: card
             orderStatus: 'pending'
         }
-        fetch('http://localhost:5500/order&paymentDetails', {
+        fetch('https://secret-crag-61586.herokuapp.com/order&paymentDetails', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderPayInfo)

@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../../App';
 import Sidebar from '../../Sidebar/Sidebar';
-import './BookingList.css'
+import './BookingList.css';
 
 const BookingList = () => {
     const { userInfo } = useContext(UserContext)
     const [bookings, setBookings] = useState([]) 
     useEffect(() => {
-        fetch(`http://localhost:5500/bookingListById/${userInfo.email}`)
+        fetch(`https://secret-crag-61586.herokuapp.com/bookingListById/${userInfo.email}`)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [userInfo.email])

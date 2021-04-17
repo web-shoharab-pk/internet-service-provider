@@ -9,7 +9,7 @@ const ManageService = () => {
     const [spinner, setSpinner] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:5500/services')
+        fetch('https://secret-crag-61586.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
@@ -18,7 +18,7 @@ const ManageService = () => {
     }, [])
 
     const handleDeleteService = (id) => {
-        fetch(`http://localhost:5500/deleteService/${id}`, {
+        fetch(`https://secret-crag-61586.herokuapp.com/deleteService/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

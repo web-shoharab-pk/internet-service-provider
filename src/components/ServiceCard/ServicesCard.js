@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 import { UserContext } from '../../App';
+import './ServicesCard.css'
 
 
 const ServicesCard = ({ service }) => {
@@ -8,7 +9,7 @@ const ServicesCard = ({ service }) => {
     const {   setBookingService } = useContext(UserContext)
     const history = useHistory() 
     const handleBooking = (id) => {
-        fetch(`http://localhost:5500/bookingService/${id}`)
+        fetch(`https://secret-crag-61586.herokuapp.com/bookingService/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBookingService(data[0])
@@ -20,7 +21,7 @@ const ServicesCard = ({ service }) => {
 
     return (
         <div className="col-md-3 p-3">
-            <div className="shadow p-1" >
+            <div className="shadow cardDiv p-1" >
                 <div className="card-body">
                     <h5 className="card-title">{service.name}</h5>
                     <p className="card-text"><strong>Details:</strong>  {service.description}</p>

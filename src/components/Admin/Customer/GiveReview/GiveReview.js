@@ -37,7 +37,7 @@ const GiveReview = () => {
             date: new Date().toDateString()
         }
 
-        fetch('http://localhost:5500/getReview', {
+        fetch('https://secret-crag-61586.herokuapp.com/getReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(review)

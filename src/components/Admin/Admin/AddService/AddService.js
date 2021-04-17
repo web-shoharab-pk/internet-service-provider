@@ -3,7 +3,8 @@ import Sidebar from '../../Sidebar/Sidebar';
 import './AddService.css';
 
 const AddService = () => {
-    const [info, setInfo] = useState({}); 
+    const [info, setInfo] = useState({});
+    const [serviceAdded, setServiceAdded] = useState(false)
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -17,11 +18,15 @@ const AddService = () => {
             price: info.price
         }
 
-        fetch('http://localhost:5500/addService', {
+        fetch('https://secret-crag-61586.herokuapp.com/addService', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(serviceInfo)
         })
+            .then(response => response.json())
+            .then(data => {
+                setServiceAdded(data)
+            })
         e.preventDefault()
 
     }
@@ -31,8 +36,15 @@ const AddService = () => {
                 <div className="col-md-2">
                     <Sidebar></Sidebar>
                 </div>
-                <div className="col-md-10 p-5">
-                <h1 className="text-primary">Add Service</h1>
+                <div className="col-md-10 p-5"> 
+
+                    {
+                        serviceAdded ?
+                            <h1 style={{ color: '#FE3748' }}>Add Service Done!!</h1>
+                            :
+                            <h1 style={{ color: '#FE3748' }}>Add Service</h1>
+                    }
+
                     <br />
                     <div>
                         <form>

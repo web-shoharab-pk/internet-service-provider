@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './Review.css'; 
+import './Review.css';
 import ReviewCard from './ReviewCard/ReviewCard';
  
 const Review = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5500/reviews')
+        fetch('https://secret-crag-61586.herokuapp.com/reviews')
+        
         .then(res => res.json())
         .then(data => setReviews(data))
     }, [])

@@ -11,7 +11,7 @@ const Services = () => {
     const [spinner, setSpinner] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:5500/services')
+        fetch('https://secret-crag-61586.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)

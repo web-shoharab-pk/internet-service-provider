@@ -8,7 +8,7 @@ const OrderedList = () => {
     const [allOrder, setAllOrder] = useState([])
     const [spinner, setSpinner] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5500/allOrder')
+        fetch('https://secret-crag-61586.herokuapp.com/allOrder')
             .then(res => res.json())
             .then(data => {
                 setAllOrder(data)
@@ -20,7 +20,7 @@ const OrderedList = () => {
         const inputStatus = e.target.value;
         const status = { inputStatus }
 
-        fetch(`http://localhost:5500/statusUpdateById/${id}`, {
+        fetch(`https://secret-crag-61586.herokuapp.com/statusUpdateById/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(status)

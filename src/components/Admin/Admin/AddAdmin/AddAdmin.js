@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from '../../Sidebar/Sidebar';
-import './AddAmin.css'
+import './AddAmin.css';
 
 const AddAdmin = () => {
     const [info, setInfo] = useState({});
@@ -20,7 +20,7 @@ const AddAdmin = () => {
             phone: info.phone
         }
 
-        fetch('http://localhost:5500/addAdmin', {
+        fetch('https://secret-crag-61586.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(adminInfo)
