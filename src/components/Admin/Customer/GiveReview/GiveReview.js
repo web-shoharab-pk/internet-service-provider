@@ -6,6 +6,7 @@ const axios = require('axios');
 const GiveReview = () => {
     const [imageURL, setImageURL] = useState({}); 
     const [info, setInfo] = useState({}); 
+    const [sreviewAdded, setReviewAdded] = useState(false)
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -29,7 +30,7 @@ const GiveReview = () => {
     }
 
     const handleReview = (e) => {
-        // e.preventDefault()
+        
         const review = {
             image: imageURL,
             name: info.name,
@@ -41,7 +42,12 @@ const GiveReview = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(review)
+        })
+        .then(response => response.json())
+        .then(data => {
+            setReviewAdded(data)
         }) 
+        e.preventDefault() 
     }
 
 
@@ -52,7 +58,14 @@ const GiveReview = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col-md-10 p-5">
-                    <h2 style={{color: '#fe3749'}} className="fw-bold">Submit your Review</h2>
+                    
+                    {
+                        sreviewAdded ?
+                            <h1 style={{ color: '#FE3748' }}>your review Done!!</h1>
+                            :
+                            <h2 style={{color: '#fe3749'}} className="fw-bold">Submit your Review</h2>
+                    }
+                    <br />
                     <form>
                         <label className="fs-5 fw-bold text-secondary">Name</label>
                         <input onBlur={handleBlur} className="form-control w-50" placeholder="Name is required" required name="name" />

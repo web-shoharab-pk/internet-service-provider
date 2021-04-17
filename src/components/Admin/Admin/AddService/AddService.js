@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import './AddService.css';
@@ -5,15 +6,33 @@ import './AddService.css';
 const AddService = () => {
     const [info, setInfo] = useState({});
     const [serviceAdded, setServiceAdded] = useState(false)
+    const [imageURL, setImageURL] = useState({}); 
+
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo)
 
     }
+    const handleImageUpload = event => {
+        const imageData = new FormData();
+        imageData.set('key', 'e1f5a6095b7d9d00411e4c204ddebf7f')
+        imageData.append('image', event.target.files[0]);
+
+        axios.post('https://api.imgbb.com/1/upload',
+            imageData
+        )
+            .then(function (response) {
+                setImageURL(response.data.data.display_url); 
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     const handleSubmit = (e) => {
         const serviceInfo = {
             name: info.name,
+            serviceImage: imageURL,
             description: info.description,
             price: info.price
         }
@@ -36,7 +55,7 @@ const AddService = () => {
                 <div className="col-md-2">
                     <Sidebar></Sidebar>
                 </div>
-                <div className="col-md-10 p-5"> 
+                <div className="col-md-10 p-5">
 
                     {
                         serviceAdded ?
@@ -56,6 +75,9 @@ const AddService = () => {
                             <br />
                             <label className="fs-5 fw-bold text-secondary">price*</label>
                             <input onBlur={handleBlur} className="form-control w-50" placeholder="Price" required name="price" />
+                            <br />
+                            <label className="fs-5 fw-bold text-secondary">Upload service image</label>
+                            <input style={{ width: '100%' }} name="photo" className="form-control w-50" onChange={handleImageUpload} type="file" required />
                             <br />
                             <button onClick={handleSubmit} type="submit" className="brandBtn w-50 text-center">SUBMIT</button>
                         </form>

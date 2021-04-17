@@ -25,7 +25,7 @@ const Services = () => {
             <section>
                 <Navbar></Navbar>
             </section>
-            <section className="container text-center  d-flex justify-content-between  align-items-center">
+            <section className="container   d-flex justify-content-between  align-items-center">
 
                 <div>
                     <h1 style={{color: '#FF4B54'}} className="my-3">Our all services</h1>
