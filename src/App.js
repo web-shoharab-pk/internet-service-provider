@@ -16,13 +16,14 @@ import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRouter from './components/Login/PrivateRouter';
 import Services from './components/Services/Services';
+import Admin from './components/Admin/Admin/Admin'
 
 export const UserContext = createContext()
 
 function App() {
   const [userInfo, setUserInfo] = useState({})
   const [bookingService, setBookingService] = useState({})
-  console.log(userInfo);
+
   return (
     <UserContext.Provider value={{ userInfo, setUserInfo, bookingService, setBookingService }}>
       <Router>
@@ -30,8 +31,8 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <PrivateRouter path="/admin/orderList">
-            <OrderedList></OrderedList>
+          <PrivateRouter path="/dashboard">
+             <Admin></Admin>
           </PrivateRouter>
           <PrivateRouter path="/admin/bookingList">
             <BookingList></BookingList>
@@ -51,7 +52,7 @@ function App() {
           <PrivateRouter path="/admin/manageService">
             <ManageService></ManageService>
           </PrivateRouter>
-          <PrivateRouter path="/dashboard">
+          <PrivateRouter path="/admin/orderList">
             <OrderedList></OrderedList> 
           </PrivateRouter>
           <PrivateRouter path="/admin/addAdmin">

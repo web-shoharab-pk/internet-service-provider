@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import Payment from '../Payment/Payment';
 
 const Shipment = ({ bookingService, userInfo }) => {
     const [info, setInfo] = useState({});
     const [shippingData, setShippingData] = useState('')
+    const history = useHistory()
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -46,7 +48,7 @@ const Shipment = ({ bookingService, userInfo }) => {
     return (
         <section className="container mt-5">
             {
-                bookingService.name &&
+                bookingService.name ?
                 <div className="row">
                     
                     <div style={{ display: shippingData ? 'none' : 'block' }} className="col-md-6 p-3">
@@ -74,6 +76,8 @@ const Shipment = ({ bookingService, userInfo }) => {
                         <Payment handlePaymentSuccess={handlePaymentSuccess}></Payment>
                     </div>
                 </div>
+                :
+                history.push('/services')
             }
 
         </section>

@@ -3,14 +3,17 @@ import Sidebar from '../../Sidebar/Sidebar';
 import './AddAmin.css'
 
 const AddAdmin = () => {
-    const [info, setInfo] = useState({}); 
+    const [info, setInfo] = useState({});
+    const [addAdmin, setAddAdmin] = useState(false)
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
         setInfo(newInfo)
 
     }
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+
+        e.preventDefault()
         const adminInfo = {
             name: info.name,
             email: info.email,
@@ -22,8 +25,11 @@ const AddAdmin = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(adminInfo)
         })
-        .then(response => response.json())
+
+            .then(response => response.json())
             .then(data => {
+                setAddAdmin(data);
+
             })
             .catch(error => {
                 console.error(error)
@@ -38,7 +44,13 @@ const AddAdmin = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col-md-10 p-5">
-                    <h1  style={{color: '#FE3748'}}>Give New Admin Details</h1>
+                    
+                    {
+                        addAdmin ?
+                         <h1 style={{ color: '#FE3748' }}>Admin create Done!!</h1>
+                        :
+                        <h1 style={{ color: '#FE3748' }}>Give New Admin Details</h1>
+                    }
                     <br />
                     <div>
                         <form>

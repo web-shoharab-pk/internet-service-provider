@@ -10,7 +10,7 @@ const AddService = () => {
         setInfo(newInfo)
 
     }
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         const serviceInfo = {
             name: info.name,
             description: info.description,
@@ -22,6 +22,7 @@ const AddService = () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(serviceInfo)
         })
+        e.preventDefault()
 
     }
     return (
