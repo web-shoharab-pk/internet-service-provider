@@ -30,8 +30,7 @@ const OurServices = () => {
         <section className="container mt-5">
             <div className="text-center">
                 <div>
-                    <h3 style={{color: '#D2159C'}}>OUR SERVICES</h3>
-                    <h1>Services We Provide</h1>
+                    <h3 style={{color: '#D2159C'}}>OUR SERVICES CATEGORIES</h3> 
                 </div> 
             </div>
             <div className="row d-flex justify-content-around align-items-center mt-5">

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../../../../App';
 import Sidebar from '../../Sidebar/Sidebar';
 import './GiveReview.css';
 const axios = require('axios');
 
 const GiveReview = () => {
+    const { userInfo } = useContext(UserContext);
     const [imageURL, setImageURL] = useState({}); 
     const [info, setInfo] = useState({}); 
     const [sreviewAdded, setReviewAdded] = useState(false)
@@ -32,6 +34,8 @@ const GiveReview = () => {
     const handleReview = (e) => {
         
         const review = {
+            userName: userInfo.displayName,
+            userEmail: userInfo.email,
             image: imageURL,
             name: info.name,
             review: info.review,

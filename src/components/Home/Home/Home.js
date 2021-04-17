@@ -1,4 +1,5 @@
 import React from 'react';
+import AllService from '../../Services/AllService'; 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import OurServices from '../OurServices/OurServices';
@@ -11,6 +12,7 @@ const Home = () => {
         <main>
             <Header></Header>
             <OurServices></OurServices>
+             <AllService></AllService> 
             <RecentWork></RecentWork>
             <Review></Review>
             <Subscription></Subscription>
